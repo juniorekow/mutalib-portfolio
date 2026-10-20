@@ -161,7 +161,7 @@ export function Footer() {
   return (
     <footer className="bg-ink py-16 text-cream">
       <div className={wrap}>
-        <p className="font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-none">MUTALIB<span className="text-coral">.</span></p>
+        <p className="font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-none">MUTALIB ABUBAKAR<span className="text-coral">.</span></p>
         <p className="mt-4 max-w-md text-cream/80">Made with curiosity, creativity, and a little bit of code.</p>
         <nav aria-label="Footer" className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
           {["Work", "About", "Services", "Playground", "Contact"].map((l) => <a key={l} href={`/#${l.toLowerCase()}`} className="hover:text-lime">{l}</a>)}
