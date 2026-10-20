@@ -18,14 +18,14 @@ export default function Work() {
       <p className="mt-4 text-sm">Sample layouts only — replace with real projects in lib/data.ts.</p>
       <div role="group" aria-label="Filter projects" className="mt-8 flex flex-wrap gap-2">
         {categories.map((c) => (
-          <button key={c} type="button" aria-pressed={cat === c} onClick={() => setCat(c)} className={`rounded-full border-2 border-ink px-4 py-2 text-sm font-medium ${cat === c ? "bg-ink text-cream" : "hover:bg-lime"}`}>{c}</button>
+          <button key={c} type="button" aria-pressed={cat === c} onClick={() => setCat(c)} className={`rounded-full border-2 border-ink px-4 py-2 text-sm font-medium transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 active:scale-95 ${cat === c ? "bg-ink text-cream" : "hover:bg-lime"}`}>{c}</button>
         ))}
       </div>
       <MotionConfig reducedMotion="user">
         <ul className="mt-10 grid gap-x-6 gap-y-10 md:grid-cols-6">
           <AnimatePresence mode="popLayout">
             {list.map((p) => (
-              <motion.li layout key={p.slug} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.96 }} className={all ? span[p.size] : "md:col-span-3"}>
+              <motion.li layout key={p.slug} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.96 }} whileHover={{ y: -6 }} whileTap={{ scale: 0.99 }} transition={{ type: "spring", stiffness: 300, damping: 24 }} className={all ? span[p.size] : "md:col-span-3"}>
                 <Link href={`/work/${p.slug}`} className="group block">
                   <div className={`${p.tint} relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-ink`}>
                     <div className="absolute inset-6 rotate-3 rounded-xl border-2 border-ink bg-white transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105" />

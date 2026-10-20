@@ -8,7 +8,7 @@ const icons = [Palette, FlaskConical, TrendingUp, ClipboardList];
 export function Hero() {
   return (
     <section id="top" className={`${wrap} grid items-center gap-14 pb-16 pt-12 lg:grid-cols-[1.25fr_1fr] lg:pt-20`}>
-      <div>
+      <Reveal className="relative z-10">
         <p className="label">Designer · Educator · Digital Creative</p>
         <h1 className="mt-6 font-display text-[clamp(2.7rem,8vw,6.2rem)] font-bold leading-[.95] tracking-tight">
           <span className="block">Good ideas deserve</span>
@@ -21,8 +21,8 @@ export function Hero() {
           <a href="#about" className="btn border-2 border-ink">A Little About Me</a>
         </div>
         <p className="mt-8 flex items-center gap-2 text-sm"><span aria-hidden className="h-2.5 w-2.5 rounded-full border border-ink bg-lime" />Open to creative collaborations.</p>
-      </div>
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-sm sm:max-w-md">
+      </Reveal>
+      <Reveal className="relative mx-auto aspect-[4/5] w-full max-w-sm sm:max-w-md" delay={0.12}>
         {/* Replace this placeholder with a real portrait (e.g. next/image from /public/portrait.jpg) */}
         <div className="absolute inset-x-8 inset-y-0 grid place-items-center rounded-t-full border-2 border-dashed border-ink bg-lav p-8 text-center text-sm font-medium">Portrait placeholder<br />Add public/portrait.jpg</div>
         <div aria-hidden className="float absolute -left-2 top-12 flex -rotate-6 gap-1.5 rounded-xl border-2 border-ink bg-white p-2.5">
@@ -34,7 +34,7 @@ export function Hero() {
         <div aria-hidden className="float absolute -left-3 bottom-24 h-20 w-20 rounded-full border-[10px] border-coral [animation-delay:-4s]" />
         <span className="absolute bottom-6 right-0 -rotate-3 rounded-full bg-blue px-4 py-2 font-display text-sm font-semibold text-white">Ideas → Impact</span>
         <span aria-hidden className="float absolute -top-2 right-10 font-display text-6xl text-coral">✳</span>
-      </div>
+      </Reveal>
       <a href="#about" className="label col-span-full">Scroll ↓</a>
     </section>
   );
@@ -53,7 +53,7 @@ export function About() {
           {areas.map((a, i) => {
             const I = icons[i];
             return (
-              <Reveal key={a.title} delay={i * 0.08} className="h-full">
+              <Reveal key={a.title} delay={i * 0.08} className="h-full" interactive>
                 <div className={`${a.tint} h-full rounded-2xl p-6 text-ink ${i % 2 ? "lg:mt-8" : ""}`}>
                   <I size={32} aria-hidden />
                   <h3 className="mt-8 font-display text-xl font-bold">{a.title}</h3>
@@ -76,7 +76,7 @@ export function Services() {
       <ul className="mt-12 divide-y-2 divide-ink border-y-2 border-ink">
         {services.map(([t, d]) => (
           <li key={t}>
-            <Reveal className="grid gap-3 py-8 md:grid-cols-[1fr_1.2fr] md:items-baseline">
+            <Reveal className="grid gap-3 py-8 transition-colors hover:text-blue md:grid-cols-[1fr_1.2fr] md:items-baseline" interactive>
               <h3 className="font-display text-2xl font-bold md:text-4xl">{t}</h3><p>{d}</p>
             </Reveal>
           </li>
@@ -95,7 +95,7 @@ export function Process() {
         <Reveal><p className="label">How ideas become experiences</p><h2 className={h2}>From ‘what if?’ to ‘there it is.’</h2></Reveal>
         <ol className="mt-12 grid gap-8 md:grid-cols-4">
           {steps.map(([t, d], i) => (
-            <li key={t}><Bar /><p className="mt-4 font-display text-6xl font-bold text-blue">0{i + 1}</p><h3 className="font-display text-2xl font-bold">{t}</h3><p className="mt-2">{d}</p></li>
+            <li key={t}><Reveal delay={i * 0.08} interactive className="h-full"><Bar /><p className="mt-4 font-display text-6xl font-bold text-blue">{`0${i + 1}`}</p><h3 className="font-display text-2xl font-bold">{t}</h3><p className="mt-2">{d}</p></Reveal></li>
           ))}
         </ol>
         <p className="mt-10 text-sm">Every brief is different, so the approach adapts to the project.</p>
@@ -125,14 +125,16 @@ export function Experience() {
                   className="absolute left-[3px] top-5 h-5 w-5 rounded-full border-[5px] border-[#0d0d16] md:static md:col-start-2 md:row-start-1 md:mx-auto md:mt-0"
                   style={{ backgroundColor: accent, boxShadow: `0 0 0 2px ${accent}` }}
                 />
+                <Reveal className={`ml-12 md:ml-0 md:row-start-1 ${left ? "md:col-start-1" : "md:col-start-3"}`} delay={index * 0.07} interactive>
                 <div
-                  className={`ml-12 rounded-xl border-2 p-6 md:ml-0 md:row-start-1 md:p-8 ${left ? "md:col-start-1 md:text-right" : "md:col-start-3 md:text-left"}`}
+                  className={`rounded-xl border-2 p-6 md:p-8 ${left ? "md:text-right" : "md:text-left"}`}
                   style={{ borderColor: accent, backgroundColor: left ? "rgba(34, 230, 204, .15)" : "rgba(236, 22, 130, .14)" }}
                 >
                   <p className="font-display text-sm font-bold" style={{ color: accent }}>Dates to be added</p>
                   <h3 className="mt-3 font-display text-xl font-bold md:text-2xl">{role}</h3>
                   <p className="mt-2 font-display font-bold" style={{ color: accent }}>{organization}</p>
                 </div>
+                </Reveal>
               </li>
             );
           })}
@@ -141,10 +143,12 @@ export function Experience() {
           <h3 className="text-center font-display text-2xl font-bold text-[#4ef0cd]">Education &amp; development</h3>
           <div className="mx-auto mt-8 grid max-w-4xl gap-4 sm:grid-cols-2">
             {education.map(([institution, programme]) => (
-              <div key={institution} className="rounded-xl border border-[#4ef0cd]/50 bg-white/[.04] p-6">
+              <Reveal key={institution} className="h-full" interactive>
+              <div className="h-full rounded-xl border border-[#4ef0cd]/50 bg-white/[.04] p-6">
                 <p className="font-display text-lg font-bold">{institution}</p>
                 <p className="mt-2 text-sm text-white/70">{programme}</p>
               </div>
+              </Reveal>
             ))}
           </div>
         </div>

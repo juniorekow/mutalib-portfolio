@@ -2,7 +2,7 @@
 export const site = {
   name: "Mutalib Abubakar",
   linkedin: "https://www.linkedin.com/in/mutalib-abubakar-93623a366/",
-  email: "", // TODO: add the real email address
+  email: "abubakar792212@gmail.com",
 };
 
 export const categories = ["All", "Graphic Design", "UI/UX Design", "Social Media & Marketing", "STEM & Robotics", "Educational Projects", "Digital Innovation"];

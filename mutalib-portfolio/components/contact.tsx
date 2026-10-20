@@ -4,7 +4,7 @@ import type { FormEvent, ReactNode } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { h2, wrap } from "@/lib/ui";
 
-const box = "w-full rounded-xl border-2 border-ink bg-white px-4 py-3 text-ink";
+const box = "w-full rounded-xl border-2 border-ink bg-white px-4 py-3 text-ink transition-[border-color,box-shadow] duration-200 focus:border-blue focus:shadow-[0_0_0_4px_rgba(67,97,238,0.15)]";
 
 function Field({ id, label, error, children }: { id: string; label: string; error?: string; children: ReactNode }) {
   return (
