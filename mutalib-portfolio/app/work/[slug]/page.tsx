@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/data";
 import { wrap } from "@/lib/ui";
@@ -21,8 +22,10 @@ export default function CaseStudy({ params }: Props) {
       <Link href="/#work" className="text-sm font-semibold underline">← Back to work</Link>
       <p className="label mt-8">{p.category}</p>
       <h1 className="mt-3 font-display text-5xl font-bold leading-none md:text-7xl">{p.title}</h1>
-      <p className="mt-6 rounded-xl bg-lime px-4 py-3 text-sm font-medium">Placeholder case study: a sample layout, not real client work.</p>
-      <div className={`${p.tint} mt-8 aspect-[16/7] rounded-2xl border-2 border-ink`} role="img" aria-label="Placeholder project cover" />
+      <p className="mt-6 max-w-2xl text-lg">{p.blurb}</p>
+      <div className={`relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border-2 border-ink bg-white ${p.tint}`}>
+        <Image src={p.image} alt={p.imageAlt} fill sizes="(max-width: 768px) 100vw, 1200px" className="object-contain" priority />
+      </div>
       <dl className="mt-8 grid gap-4 text-sm sm:grid-cols-4">
         {[["Category", p.category], ["My role", p.role], ["Tools", p.tools], ["Year", p.year]].map(([k, v]) => <div key={k}><dt className="font-bold">{k}</dt><dd>{v}</dd></div>)}
       </dl>

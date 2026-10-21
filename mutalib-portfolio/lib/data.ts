@@ -5,18 +5,18 @@ export const site = {
   email: "abubakar792212@gmail.com",
 };
 
-export const categories = ["All", "Graphic Design", "UI/UX Design", "Social Media & Marketing", "STEM & Robotics", "Educational Projects", "Digital Innovation"];
+export const categories = ["All", "Graphic Design", "Social Media & Marketing", "Educational Projects"];
 
-export type Project = { slug: string; title: string; category: string; blurb: string; size: "w" | "s" | "h"; tint: string; role: string; tools: string; year: string };
+export type Project = { slug: string; title: string; category: string; blurb: string; image: string; imageAlt: string; size: "w" | "s" | "h"; tint: string; role: string; tools: string; year: string };
 const tbc = { role: "To be added", tools: "To be added", year: "To be added" };
-// PLACEHOLDERS: replace with real projects. None of these are real client work.
 export const projects: Project[] = [
-  { slug: "identity-sample", title: "Brand identity layout", category: "Graphic Design", blurb: "Sample: logo, palette and campaign kit.", size: "w", tint: "bg-lav", ...tbc },
-  { slug: "app-screens-sample", title: "App interface layout", category: "UI/UX Design", blurb: "Sample: wireframes to responsive screens.", size: "s", tint: "bg-lime", ...tbc },
-  { slug: "social-sample", title: "Social campaign layout", category: "Social Media & Marketing", blurb: "Sample: content plan and performance report.", size: "s", tint: "bg-coral", ...tbc },
-  { slug: "robotics-sample", title: "Robotics session layout", category: "STEM & Robotics", blurb: "Sample: a beginner-friendly robotics session.", size: "w", tint: "bg-blue", ...tbc },
-  { slug: "learning-sample", title: "Learning resource layout", category: "Educational Projects", blurb: "Sample: an activity pack for new learners.", size: "h", tint: "bg-lav", ...tbc },
-  { slug: "innovation-sample", title: "Digital innovation layout", category: "Digital Innovation", blurb: "Sample: a small technology experiment.", size: "h", tint: "bg-lime", ...tbc },
+  { slug: "balance-steppers-logo", title: "Balance Steppers Logo", category: "Graphic Design", blurb: "Logo design for Balance Steppers.", image: "/portfolio/balance-steppers-logo.png", imageAlt: "Black and white Balance Steppers logo", size: "s", tint: "bg-lav", ...tbc },
+  { slug: "byu-pathway-success-story", title: "BYU-Pathway Success Story", category: "Educational Projects", blurb: "A visual story about the BYU-Pathway learning experience.", image: "/portfolio/byu-pathway-success-story.png", imageAlt: "BYU-Pathway success story poster featuring a student working on a laptop", size: "w", tint: "bg-lime", ...tbc },
+  { slug: "dhuraba-food-beverages", title: "Dhuraba Food & Beverages", category: "Graphic Design", blurb: "Promotional flyer for Dhuraba Bracha Ent.'s food, drinks, and groceries.", image: "/portfolio/dhuraba-food-beverages.png", imageAlt: "Dhuraba Bracha Ent. food, beverages, and groceries promotional flyer", size: "s", tint: "bg-coral", ...tbc },
+  { slug: "ghana-independence-69", title: "Ghana Independence Day", category: "Graphic Design", blurb: "A commemorative design celebrating Ghana's 69th Independence Anniversary.", image: "/portfolio/ghana-independence-69.jpg", imageAlt: "Ghana at 69 Independence Anniversary poster", size: "w", tint: "bg-blue", ...tbc },
+  { slug: "bountiful-christmas-campaign", title: "Bountiful Technologies Christmas", category: "Social Media & Marketing", blurb: "A festive holiday greeting for Bountiful Technologies.", image: "/portfolio/bountiful-christmas-campaign.jpg", imageAlt: "Merry Christmas greeting design for Bountiful Technologies", size: "s", tint: "bg-lav", ...tbc },
+  { slug: "wymp-campaign", title: "WYMP Campaign", category: "Social Media & Marketing", blurb: "A campaign poster for Youth MP candidate Whyte Amankwanor Sackey.", image: "/portfolio/wymp-campaign.png", imageAlt: "Youth MP campaign poster for Whyte Amankwanor Sackey", size: "w", tint: "bg-lime", ...tbc },
+  { slug: "bountiful-fathers-day", title: "Bountiful Technologies Father's Day", category: "Social Media & Marketing", blurb: "A Father's Day greeting design for Bountiful Technologies.", image: "/portfolio/bountiful-fathers-day.png", imageAlt: "Father's Day greeting design for Bountiful Technologies", size: "h", tint: "bg-coral", ...tbc },
 ];
 
 export const areas = [
@@ -47,5 +47,5 @@ export const experience = [
 ];
 export const education = [
   ["BYU–Pathway Worldwide", "Programme and status to be added"],
-  ["Ensign College", "Programme and status to be added"],
+  ["Ensign College", "BSC COMMOUNICATION AND DIGITAL CREATION"],
 ];

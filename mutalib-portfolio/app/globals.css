@@ -6,6 +6,8 @@ body { @apply bg-cream font-sans text-ink antialiased; }
 :focus-visible { outline: 3px solid #4361EE; outline-offset: 3px; border-radius: 4px; }
 .label { @apply font-display text-xs font-semibold uppercase tracking-[.2em]; }
 .btn { @apply inline-flex min-h-[48px] items-center gap-2 rounded-full px-6 font-display font-semibold transition-transform duration-200 hover:-translate-y-0.5 active:scale-95; }
+.project-image { object-fit: contain; transition: transform 500ms ease; }
+.group:hover .project-image { transform: scale(1.025); }
 @keyframes float { 50% { translate: 0 -10px; } }
 .float { animation: float 6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {

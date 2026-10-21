@@ -1,4 +1,5 @@
 import { ArrowUpRight, ClipboardList, FlaskConical, Palette, TrendingUp } from "lucide-react";
+import Image from "next/image";
 import Reveal, { Bar } from "./reveal";
 import { areas, education, experience, services, site, steps } from "@/lib/data";
 import { h2, wrap } from "@/lib/ui";
@@ -15,7 +16,7 @@ export function Hero() {
           <span className="block"><span className="bg-lime px-2 [box-decoration-break:clone]">a beautiful</span> way</span>
           <span className="block">to <em className="font-medium text-blue">grow.</em></span>
         </h1>
-        <p className="mt-8 max-w-xl text-lg">I’m Mutalib Abubakar — a multidisciplinary creative working at the intersection of design, technology, digital marketing, and STEM education. I turn ideas into engaging experiences that help people learn, connect, and grow.</p>
+        <p className="mt-8 max-w-xl text-lg">I’m Mutalib Abubakar  a multidisciplinary creative working at the intersection of design, technology, digital marketing, and STEM education. I turn ideas into engaging experiences that help people learn, connect, and grow.</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href="#work" className="btn bg-blue text-white">Explore My Work ↘</a>
           <a href="#about" className="btn border-2 border-ink">A Little About Me</a>
@@ -23,8 +24,9 @@ export function Hero() {
         <p className="mt-8 flex items-center gap-2 text-sm"><span aria-hidden className="h-2.5 w-2.5 rounded-full border border-ink bg-lime" />Open to creative collaborations.</p>
       </Reveal>
       <Reveal className="relative mx-auto aspect-[4/5] w-full max-w-sm sm:max-w-md" delay={0.12}>
-        {/* Replace this placeholder with a real portrait (e.g. next/image from /public/portrait.jpg) */}
-        <div className="absolute inset-x-8 inset-y-0 grid place-items-center rounded-t-full border-2 border-dashed border-ink bg-lav p-8 text-center text-sm font-medium">Portrait placeholder<br />Add public/portrait.jpg</div>
+        <div className="absolute inset-x-8 inset-y-0 overflow-hidden rounded-t-full border-2 border-ink bg-lav">
+          <Image src="/portrait.jpg" alt="Portrait of Mutalib Abubakar" fill sizes="(max-width: 768px) 80vw, 400px" className="object-cover" priority />
+        </div>
         <div aria-hidden className="float absolute -left-2 top-12 flex -rotate-6 gap-1.5 rounded-xl border-2 border-ink bg-white p-2.5">
           {["bg-blue", "bg-coral", "bg-lime", "bg-lav"].map((c) => <i key={c} className={`h-6 w-6 rounded-full ${c}`} />)}
         </div>
