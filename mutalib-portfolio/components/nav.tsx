@@ -10,7 +10,7 @@ export default function Nav() {
   const reduce = useReducedMotion();
   return (
     <header className="sticky top-3 z-50 px-4">
-      <motion.nav initial={reduce ? false : { opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }} aria-label="Main" className="relative mx-auto flex h-16 max-w-6xl items-center justify-between overflow-hidden rounded-full border border-white/70 bg-white/55 px-5 shadow-[0_8px_32px_rgba(23,23,23,0.12),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl md:px-8 before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/70 before:via-white/10 before:to-blue/10 before:content-['']">
+      <motion.nav initial={reduce ? false : { opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: "easeOut" }} aria-label="Main" className="glass-nav relative mx-auto flex h-16 max-w-6xl items-center justify-between overflow-hidden rounded-full border border-white/70 bg-white/55 px-5 shadow-[0_8px_32px_rgba(23,23,23,0.12),inset_0_1px_0_rgba(255,255,255,0.9)] backdrop-blur-2xl md:px-8">
         <a href="/#top" className="relative z-10 font-display text-2xl font-bold tracking-tight">MUTALIB<span className="text-coral">.</span></a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => <li key={l}><a className="relative z-10 font-medium transition-colors hover:text-blue" href={`/#${l.toLowerCase()}`}>{l}</a></li>)}

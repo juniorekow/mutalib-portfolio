@@ -6,6 +6,48 @@ body { @apply bg-cream font-sans text-ink antialiased; }
 :focus-visible { outline: 3px solid #4361EE; outline-offset: 3px; border-radius: 4px; }
 .label { @apply font-display text-xs font-semibold uppercase tracking-[.2em]; }
 .btn { @apply inline-flex min-h-[48px] items-center gap-2 rounded-full px-6 font-display font-semibold transition-transform duration-200 hover:-translate-y-0.5 active:scale-95; }
+.glass-nav {
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 18px 40px rgba(19, 19, 25, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -10px 20px rgba(255, 255, 255, 0.12);
+}
+.glass-nav::before,
+.glass-nav::after {
+  position: absolute;
+  pointer-events: none;
+  border-radius: inherit;
+  content: "";
+}
+.glass-nav::before {
+  z-index: 0;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.12) 28%, rgba(255,255,255,0.04) 80%),
+    radial-gradient(ellipse at 20% 0%, rgba(255,255,255,0.95), rgba(255,255,255,0) 34%),
+    linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 55%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+.glass-nav::after {
+  z-index: 1;
+  top: -75%;
+  bottom: -75%;
+  left: -25%;
+  width: 28%;
+  transform: translateX(-180%) rotate(18deg);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+  filter: blur(2px);
+  opacity: 0.9;
+  animation: glass-reflection 8s ease-in-out infinite;
+}
+.glass-nav > * { position: relative; z-index: 2; }
+@keyframes glass-reflection {
+  0%, 15% { transform: translateX(-180%) rotate(18deg); opacity: 0; }
+  30% { opacity: 1; }
+  55%, 100% { transform: translateX(440%) rotate(18deg); opacity: 0; }
+}
 .project-image { object-fit: contain; transition: transform 500ms ease; }
 .group:hover .project-image { transform: scale(1.025); }
 @keyframes float { 50% { translate: 0 -10px; } }
@@ -13,5 +55,6 @@ body { @apply bg-cream font-sans text-ink antialiased; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .float { animation: none; }
+  .glass-nav::after { animation: none; }
   * { transition-duration: .01ms !important; }
 }
